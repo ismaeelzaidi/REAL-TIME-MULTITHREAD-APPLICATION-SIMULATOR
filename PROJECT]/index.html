@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Real-Time Multi-threaded Application Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Real-Time Multi-threaded Application Simulator
+    <span id="currentModelBadge" class="badge-model">Many-to-One</span>
+  </h1>
+</header>
+
+<div class="container">
+  <!-- Controls -->
+  <div class="panel">
+    <h2>Controls</h2>
+    <div class="controls">
+      <div>
+        <label for="modelSelect">Threading Model:</label>
+        <select id="modelSelect">
+          <option value="manyToOne">Many-to-One</option>
+          <option value="oneToOne">One-to-One</option>
+          <option value="manyToMany">Many-to-Many</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="userThreadCount">User Threads:</label>
+        <input type="number" id="userThreadCount" min="1" max="15" value="5">
+      </div>
+
+      <div>
+        <label for="kernelThreadCount">Kernel Threads (for Many-to-Many):</label>
+        <input type="number" id="kernelThreadCount" min="1" max="8" value="3" disabled>
+      </div>
+
+      <button id="initBtn" class="secondary">Initialize</button>
+      <button id="startBtn" class="primary" disabled>Start</button>
+      <button id="pauseBtn" class="secondary" disabled>Pause</button>
+      <button id="stepBtn" class="secondary" disabled>Step</button>
+      <button id="resetBtn" class="danger" disabled>Reset</button>
+    </div>
+    <div class="note">
+      Tip: Click <b>Initialize</b> to create threads, then <b>Start</b> for automatic simulation or <b>Step</b> for manual ticks.
+    </div>
+  </div>
+
+  <!-- Status row -->
+  <div class="status-row">
+    <div class="panel" style="flex:1;">
+      <h2>Semaphore & Monitor Status</h2>
+      <p>
+        Binary Semaphore: 
+        <span id="semaphoreStatus" class="semaphore ok">Available (1)</span>
+      </p>
+      <p>
+        Time Step: <b><span id="tickCounter">0</span></b>
+      </p>
+      <div class="model-explanation" id="modelExplanation"></div>
+    </div>
+  </div>
+
+  <!-- Thread tables -->
+  <div class="panel">
+    <h2>User Threads</h2>
+    <table id="userThreadTable">
+      <thead>
+        <tr>
+          <th>User Thread ID</th>
+          <th>State</th>
+          <th>Kernel Thread Mapped</th>
+          <th>In Critical Section?</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2>Kernel Threads</h2>
+    <table id="kernelThreadTable">
+      <thead>
+        <tr>
+          <th>Kernel Thread ID</th>
+          <th>Running User Thread</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- Log -->
+  <div class="panel">
+    <h2>Event Log (Scheduler, Semaphores & Monitors)</h2>
+    <div id="log"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
