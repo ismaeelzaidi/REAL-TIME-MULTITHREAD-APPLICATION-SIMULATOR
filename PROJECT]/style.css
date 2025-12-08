@@ -1,0 +1,138 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+}
+header {
+  background: #2c3e50;
+  color: white;
+  padding: 10px 20px;
+}
+header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+.container {
+  padding: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.controls, .status-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+.controls label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+.controls select, .controls input {
+  padding: 4px 6px;
+  font-size: 13px;
+}
+button {
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+button.primary {
+  background: #3498db;
+  color: white;
+}
+button.secondary {
+  background: #bdc3c7;
+}
+button.danger {
+  background: #e74c3c;
+  color: white;
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.panel {
+  background: white;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.panel h2 {
+  margin-top: 0;
+  font-size: 16px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 6px 8px;
+  text-align: center;
+}
+th {
+  background: #f0f0f0;
+}
+.tag {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: bold;
+}
+.READY { background: #dff0d8; color: #3c763d; }
+.RUNNING { background: #d9edf7; color: #31708f; }
+.BLOCKED { background: #f2dede; color: #a94442; }
+.TERMINATED { background: #eeeeee; color: #777; }
+
+.semaphore {
+  font-weight: bold;
+  font-size: 14px;
+}
+.semaphore.ok {
+  color: #27ae60;
+}
+.semaphore.busy {
+  color: #e67e22;
+}
+
+#log {
+  height: 200px;
+  overflow-y: auto;
+  background: #111;
+  color: #eee;
+  font-family: Consolas, monospace;
+  font-size: 12px;
+  padding: 8px;
+  border-radius: 4px;
+  white-space: pre-wrap;
+}
+.note {
+  font-size: 12px;
+  color: #555;
+}
+.model-explanation {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.4;
+}
+.badge-model {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #8e44ad;
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  margin-left: 5px;
+}
